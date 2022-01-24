@@ -13,13 +13,15 @@ class Wallet :
             self.address_compressed = pubkey_to_addr(self.public_key,True)
             self.address_uncompressed = pubkey_to_addr(self.public_key,True)
 
+        self.balance = None
+
         self.info = {}
         self.info["private_key"] = self.private_key
         self.info["public_key"] = self.public_key
         self.info["address_compressed"] = self.address_compressed
         self.info["address_uncompressed"] = self.address_uncompressed
 
-    def get_info(self,private_key = True, public_key = True, address_compressed = True, address_uncompressed = True) :
+    def get_info(self,private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = False) :
 
         response = {}
         
@@ -31,6 +33,17 @@ class Wallet :
            response["address_compressed"] = self.address_compressed
         if(address_uncompressed) :
             response["address_uncompressed"] = self.address_uncompressed
+
+        if(balance) :
+            if(self.balance == None) :
+                response["balance"] = self.get_balance()
+            else :
+                response["balance"] = self.balance
         
         return response
+
+    def get_balance(self) :
+        self.balance = getBalance(self.address_compressed, self.address_uncompressed)
+        self.info["balance"] = self.balance
+        return self.balance
         
