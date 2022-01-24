@@ -1,9 +1,10 @@
 from utils import *
 from bitcoin import *
+from blockchain import *
 
 bytes = [randomBytes()]
 
-for n in range(0,10) :
+for n in range(0,0) :
     valueBytes = list(bytes[n])
     bytes.append(nextBitcoinBytes(valueBytes))
 
@@ -16,6 +17,7 @@ for byte in bytes :
     print("Private key : " + private_key)
     print("Address (Compressed) : " + address_compressed)
     print("Address (Uncompressed) : " + address_uncompressed)
+    print("Balance : " + str(getBalance(address_compressed, address_uncompressed)))
 
 
 #print(bytesToHex(bytes))
