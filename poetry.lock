@@ -18,6 +18,17 @@ python-versions = ">=3.5"
 tests = ["mypy", "PyHamcrest (>=2.0.2)", "pytest (>=4.6)", "pytest-benchmark", "pytest-cov", "pytest-flake8"]
 
 [[package]]
+name = "bip32utils"
+version = "0.3.post4"
+description = "Utilities for generating and using Bitcoin Hierarchical Deterministic wallets (BIP0032)."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ecdsa = "*"
+
+[[package]]
 name = "bit"
 version = "0.8.0"
 description = "Bitcoin made easy."
@@ -107,6 +118,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "mnemonic"
+version = "0.20"
+description = "Implementation of Bitcoin BIP-0039"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -156,7 +175,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b606ad0e4d1c6e4da56acc3c4977cc5f305f96fa53762faed1fce0b8c57581e2"
+content-hash = "0a2fbc04c2251327fa871d63264a632b1128d5e7612963fd52d145e0bf3f5733"
 
 [metadata.files]
 asn1crypto = [
@@ -166,6 +185,10 @@ asn1crypto = [
 base58 = [
     {file = "base58-2.1.1-py3-none-any.whl", hash = "sha256:11a36f4d3ce51dfc1043f3218591ac4eb1ceb172919cebe05b52a5bcc8d245c2"},
     {file = "base58-2.1.1.tar.gz", hash = "sha256:c5d0cb3f5b6e81e8e35da5754388ddcc6d0d14b6c6a132cb93d69ed580a7278c"},
+]
+bip32utils = [
+    {file = "bip32utils-0.3.post4-py3-none-any.whl", hash = "sha256:86125e16732101f17dbf4307ca0311a06ded0aca94220ac961e5bce0a444e972"},
+    {file = "bip32utils-0.3.post4.tar.gz", hash = "sha256:5970f40fbb727a89d3cc06b6387b348252f7c8af6b3470df704276de728c48c2"},
 ]
 bit = [
     {file = "bit-0.8.0-py3-none-any.whl", hash = "sha256:059b4f8905359576ecb09c7bc9e5e266532b820179c625e39a501a21867f2c83"},
@@ -284,6 +307,10 @@ ecdsa = [
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
+]
+mnemonic = [
+    {file = "mnemonic-0.20-py3-none-any.whl", hash = "sha256:acd2168872d0379e7a10873bb3e12bf6c91b35de758135c4fbd1015ef18fafc5"},
+    {file = "mnemonic-0.20.tar.gz", hash = "sha256:7c6fb5639d779388027a77944680aee4870f0fcd09b1e42a5525ee2ce4c625f6"},
 ]
 pycparser = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},

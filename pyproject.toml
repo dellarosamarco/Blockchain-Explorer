@@ -10,6 +10,8 @@ bitcoin = "^1.1.42"
 bit = "^0.8.0"
 base58 = "^2.1.1"
 ecdsa = "^0.17.0"
+bip32utils = "^0.3.post4"
+mnemonic = "^0.20"
 
 [tool.poetry.dev-dependencies]
 

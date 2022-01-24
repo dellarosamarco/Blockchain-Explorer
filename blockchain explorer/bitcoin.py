@@ -3,6 +3,11 @@ import base58
 import codecs
 import ecdsa
 
+import pprint
+import binascii
+import mnemonic
+import bip32utils
+
 def privkey_to_pubkey(private_key) :
     private_key_bytes = codecs.decode(private_key, 'hex')
     public_key_raw = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
@@ -48,3 +53,28 @@ def pubkey_to_addr(public_key, compressed) :
     address = base58.b58encode(bytes(bytearray.fromhex(byte_25_address))).decode('utf-8')
 
     return address
+
+
+def bip39(mnemonic_words):
+    mobj = mnemonic.Mnemonic("english")
+    seed = mobj.to_seed(mnemonic_words)
+
+    bip32_root_key_obj = bip32utils.BIP32Key.fromEntropy(seed)
+    bip32_child_key_obj = bip32_root_key_obj.ChildKey(
+        44 + bip32utils.BIP32_HARDEN
+    ).ChildKey(
+        0 + bip32utils.BIP32_HARDEN
+    ).ChildKey(
+        0 + bip32utils.BIP32_HARDEN
+    ).ChildKey(0).ChildKey(0)
+
+    wif = bip32_child_key_obj.WalletImportFormat()
+    private_key = wif_to_privkey(wif)
+
+    return private_key
+
+def wif_to_privkey(wif):    
+    first_encode = base58.b58decode(wif)
+    private_key_full = binascii.hexlify(first_encode)
+    private_key = private_key_full[2:-10]
+    return private_key.decode("utf-8")
