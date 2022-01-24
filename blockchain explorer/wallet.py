@@ -9,10 +9,10 @@ class Wallet :
         else : 
             self.bytes = randomBytes()
             self.private_key = bytesToHex(self.bytes)
-            self.public_key = privkey_to_pubkey(self.private_key)
-            self.address_compressed = pubkey_to_addr(self.public_key,True)
-            self.address_uncompressed = pubkey_to_addr(self.public_key,True)
-
+            
+        self.public_key = privkey_to_pubkey(self.private_key)
+        self.address_compressed = pubkey_to_addr(self.public_key,True)
+        self.address_uncompressed = pubkey_to_addr(self.public_key,False)
         self.balance = None
 
         self.info = {}
