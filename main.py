@@ -24,7 +24,7 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 
 #Get balance of an address
 address = "1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH"
-print(get_balance(address))
+#print(get_balance(address))
 
 #Get next wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000001")
@@ -44,3 +44,7 @@ next_wallet = Wallet(next_private_key)
 private_key = "0000000000000000000000000000000000000000000000000000000000000001"
 #print(privkey_to_addr(private_key, compressed=True))
 #print(privkey_to_addr(private_key, compressed=False))
+
+
+#Generate random seed phrase
+print(random_seed_phrase())

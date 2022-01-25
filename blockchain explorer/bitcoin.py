@@ -177,3 +177,14 @@ def randomBytes() :
     for n in range(0,32) :
         bytesArray.append(random.randint(0,255))
     return bytesArray
+
+def random_seed_phrase() :
+    file = open("./blockchain explorer/english.txt","r")
+    seed = []
+    words = []
+    for word in file.readlines() :
+        words.append(word.rstrip("\n"))
+
+    for n in range(0,12) :
+        seed.append(words[random.randint(0,len(words))])
+    return seed
