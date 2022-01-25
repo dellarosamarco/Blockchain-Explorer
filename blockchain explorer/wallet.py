@@ -1,6 +1,4 @@
-from utils import *
 from bitcoin import *
-from blockchain import *
 
 class Wallet :
     def __init__(self,private_key = None) :
@@ -43,7 +41,7 @@ class Wallet :
         return response
 
     def get_balance(self) :
-        self.balance = getBalance(self.address_compressed, self.address_uncompressed)
+        self.balance = get_balance(self.address_compressed, self.address_uncompressed)
         self.info["balance"] = self.balance
         return self.balance
         
