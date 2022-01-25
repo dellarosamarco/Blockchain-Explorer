@@ -17,3 +17,6 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 #Generate brain wallet
 print("")
 print(bip39("aware report multiply exile buyer drum poverty supreme gym oppose float"))
+
+print(hexToBytes("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff"))
+print(bytesToHex([65, 65, 54, 208, 140, 94, 210, 191, 59, 160, 72, 175, 230, 220, 174, 186, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]))
