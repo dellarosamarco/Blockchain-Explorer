@@ -7,7 +7,8 @@ def bytesToHex(bytesArray) :
 def hexToBytes(hex) :
     return [int(hex[i:i+2],16) for i in range(0,len(hex),2)]
 
-def nextBitcoinBytes(bytesArray) :
+def nextPrivateKey(private_key) :
+    bytesArray = hexToBytes(private_key)
     index = 31
     bytesArray[index] += 1
 
@@ -16,7 +17,36 @@ def nextBitcoinBytes(bytesArray) :
         index-=1
         bytesArray[index] += 1
 
-    return bytesArray
+    private_key = bytesToHex(bytesArray)
+    return private_key
+
+def previousPrivateKey(private_key) :
+    bytesArray = hexToBytes(private_key)
+    index = 31
+    bytesArray[index] -= 1
+
+    while(bytesArray[index] < 0) :
+        bytesArray[index] = 255
+        index-=1
+        bytesArray[index] -= 1
+
+    for byte in bytesArray : 
+        if(byte > 255 or byte < 0) :
+            return ValueError("Invalid private key")
+
+    valid = False
+
+    for byte in bytesArray :
+        if(byte != 0) :
+            valid = True
+            break
+
+    if(valid == False) :
+        raise ValueError("Invalid private key")
+    
+
+    private_key = bytesToHex(bytesArray)
+    return private_key
 
 def randomBytes() :
     bytesArray = []

@@ -16,7 +16,20 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 
 #Generate brain wallet
 print("")
-print(bip39("aware report multiply exile buyer drum poverty supreme gym oppose float"))
+private_key = bip39("aware report multiply exile buyer drum poverty supreme gym oppose float aware")
+wallet_2 = Wallet(private_key)
+#print(wallet_2.get_info(balance=True))
 
-print(hexToBytes("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff"))
-print(bytesToHex([65, 65, 54, 208, 140, 94, 210, 191, 59, 160, 72, 175, 230, 220, 174, 186, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]))
+#Get next wallet
+wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000001")
+#print(wallet.private_key)
+next_private_key = nextPrivateKey(wallet.private_key)
+next_wallet = Wallet(next_private_key)
+#print(next_wallet.private_key)
+
+#Get previous wallet
+wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
+print(wallet.private_key)
+next_private_key = previousPrivateKey(wallet.private_key)
+next_wallet = Wallet(next_private_key)
+print(next_wallet.private_key)
