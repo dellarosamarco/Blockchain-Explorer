@@ -43,7 +43,8 @@ first_private_key = "00000000000000000000000000000000000000000000000000000000000
 first_wallet = Wallet(first_private_key)
 
 #Get the next private key of the wallet
-next_private_key = nextPrivateKey(first_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000002
+next_private_key = nextPrivateKey(first_wallet.private_key)
+print(next_private_key) #0000000000000000000000000000000000000000000000000000000000000002
 
 #Go back to the previous private key
 previous_wallet = Wallet(next_private_key)
