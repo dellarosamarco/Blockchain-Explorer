@@ -31,6 +31,6 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 ```python
 import test
 words = "aware report multiply exile buyer drum poverty supreme gym oppose float aware"
-private_key = bip39(worrds)
+private_key = bip39(words)
 wallet = Wallet(private_key)
 ```
