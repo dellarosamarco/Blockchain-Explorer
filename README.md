@@ -38,17 +38,15 @@ wallet = Wallet(private_key)
 #### Get next and previous private key
 ```python
 import test
-#Create a wallet
-first_private_key = "0000000000000000000000000000000000000000000000000000000000000001"
-first_wallet = Wallet(first_private_key)
 
-#Get the next private key of the wallet
-next_private_key = nextPrivateKey(first_wallet.private_key)
-print(next_private_key) #0000000000000000000000000000000000000000000000000000000000000002
+#Starting private key
+private_key_1 = "0000000000000000000000000000000000000000000000000000000000000001"
 
-#Go back to the previous private key
-previous_wallet = Wallet(next_private_key)
-previous_private_key = previousPrivateKey(previous_wallet.private_key)
-previous_wallet = Wallet(previous_private_key)
-print(next_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
+#Go to the next one
+private_key_2 = nextPrivateKey(private_key_1)
+print(private_key_2) #0000000000000000000000000000000000000000000000000000000000000002
+
+#Go back to the previous one
+private_key_1 = previousPrivateKey(private_key_2)
+print(private_key_1) #0000000000000000000000000000000000000000000000000000000000000001
 ```
