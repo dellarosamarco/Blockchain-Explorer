@@ -34,3 +34,20 @@ words = "aware report multiply exile buyer drum poverty supreme gym oppose float
 private_key = bip39(words)
 wallet = Wallet(private_key)
 ```
+
+#### Get next and previous private key
+```python
+import test
+#Create a wallet
+first_private_key = "0000000000000000000000000000000000000000000000000000000000000001"
+first_wallet = Wallet(first_private_key)
+
+#Get the next private key of the wallet
+next_private_key = nextPrivateKey(first_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000002
+
+#Go back to the previous private key
+previous_wallet = Wallet(next_private_key)
+previous_private_key = previousPrivateKey(previous_wallet.private_key)
+previous_wallet = Wallet(previous_private_key)
+print(next_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
+```
