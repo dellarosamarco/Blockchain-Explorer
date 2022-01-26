@@ -17,6 +17,7 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 balance = wallet.get_balance()
 print(balance)
 
+
 #Generate a random wallet
 wallet = Wallet()
 balance = wallet.get_balance()
