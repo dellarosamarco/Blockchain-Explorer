@@ -27,13 +27,17 @@ import test
 wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff")
 ```
 
-#### Generate a 12 words wallet
-```python
+#### Get balance of a wallet 
 import test
-words = "aware report multiply exile buyer drum poverty supreme gym oppose float aware"
-private_key = bip39(words)
+wallet = Wallet()
+print(wallet.get_balance())
+
+#### Generate a random seed phrase
+import test
+seed_phrase = random_seed_phrase()
+print(seed_phrase)    #aware report multiply exile buyer drum poverty supreme gym oppose float acid
+private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
-```
 
 #### Get next and previous private key
 ```python
