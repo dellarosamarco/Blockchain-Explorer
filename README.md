@@ -58,3 +58,19 @@ print(private_key_2) #0000000000000000000000000000000000000000000000000000000000
 private_key_1 = previousPrivateKey(private_key_2)
 print(private_key_1) #0000000000000000000000000000000000000000000000000000000000000001
 ```
+
+Funcions :
+* get_balance(address) -> balance
+* random_private_key() -> private_key
+* privkey_to_pubkey(private_key) -> public_key
+* pubkey_to_addr(public_key,True) -> address (Compressed)
+* pubkey_to_addr(public_key,False) -> address (Uncompressed)
+* privkey_to_addr(private_key, True) -> address (Compressed)
+* privkey_to_addr(private_key, Frue) -> address (Uncompressed)
+* bip39(seed_phrase) -> private key
+* hexToBytes(hex) -> bytes
+* bytesToHex(bytes) -> hex
+* nextPrivateKey(private_key) -> private_key
+* previousPrivateKey(private_key) -> private_key
+* randomBytes() -> bytes
+* random_seed_phrase() -> seed phrase
