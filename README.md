@@ -35,13 +35,13 @@ print(wallet.get_balance())
 ```
 
 #### Generate a random seed phrase
-```
+```python
 import test
 seed_phrase = random_seed_phrase()
 print(seed_phrase)    #aware report multiply exile buyer drum poverty supreme gym oppose float acid
 private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
-```python
+```
 
 #### Get next and previous private key
 ```python
