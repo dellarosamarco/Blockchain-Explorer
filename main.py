@@ -29,14 +29,14 @@ address = "1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH"
 #Get next wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000001")
 #print(wallet.private_key)
-next_private_key = nextPrivateKey(wallet.private_key)
+next_private_key = next_private_key(wallet.private_key)
 next_wallet = Wallet(next_private_key)
 #print(next_wallet.private_key)
 
 #Get previous wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
 #print(wallet.private_key)
-next_private_key = previousPrivateKey(wallet.private_key)
+next_private_key = previous_private_key(wallet.private_key)
 next_wallet = Wallet(next_private_key)
 #print(next_wallet.private_key)
 
@@ -47,4 +47,16 @@ private_key = "0000000000000000000000000000000000000000000000000000000000000001"
 
 
 #Generate random seed phrase
-print(random_seed_phrase())
+#print(random_seed_phrase())
+
+
+#Generate random private key
+#print(random_private_key())
+
+#Get next and previosu wallet
+wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
+next_wallet = wallet.next_wallet()
+print(next_wallet.private_key)
+
+previous_wallet = wallet.previous_wallet()
+print(previous_wallet.private_key)

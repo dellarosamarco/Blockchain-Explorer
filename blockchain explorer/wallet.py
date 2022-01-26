@@ -19,7 +19,7 @@ class Wallet :
         self.info["address_compressed"] = self.address_compressed
         self.info["address_uncompressed"] = self.address_uncompressed
 
-    def get_info(self,private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = False) :
+    def get_info(self,private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = True) :
 
         response = {}
         
@@ -44,4 +44,14 @@ class Wallet :
         self.balance = get_balance(self.address_compressed, self.address_uncompressed)
         self.info["balance"] = self.balance
         return self.balance
+
+    def next_wallet(self) :
+        next_priv_key = next_private_key(self.private_key)
+        next_wallet = Wallet(next_priv_key)
+        return next_wallet
+
+    def previous_wallet(self) :
+        previous_priv_key= previous_private_key(self.private_key)
+        previous_wallet = Wallet(previous_priv_key)
+        return previous_wallet
         

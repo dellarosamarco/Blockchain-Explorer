@@ -131,7 +131,7 @@ def bytesToHex(bytesArray) :
 def hexToBytes(hex) :
     return [int(hex[i:i+2],16) for i in range(0,len(hex),2)]
 
-def nextPrivateKey(private_key) :
+def next_private_key(private_key) :
     bytesArray = hexToBytes(private_key)
     index = 31
     bytesArray[index] += 1
@@ -144,7 +144,7 @@ def nextPrivateKey(private_key) :
     private_key = bytesToHex(bytesArray)
     return private_key
 
-def previousPrivateKey(private_key) :
+def previous_private_key(private_key) :
     bytesArray = hexToBytes(private_key)
     index = 31
     bytesArray[index] -= 1
@@ -177,6 +177,11 @@ def randomBytes() :
     for n in range(0,32) :
         bytesArray.append(random.randint(0,255))
     return bytesArray
+
+def random_private_key() :
+    bytes = randomBytes()
+    private_key = bytesToHex(bytes)
+    return private_key
 
 def random_seed_phrase() :
     file = open("./blockchain explorer/english.txt","r")
