@@ -52,6 +52,19 @@ private_key_1 = previousPrivateKey(private_key_2)
 print(private_key_1) #0000000000000000000000000000000000000000000000000000000000000001
 ```
 
+Wallet functionalities : 
+* Wallet() -> create random wallet
+* Wallet(private_key) -> create wallet from a private key
+* wallet.get_balance() -> balance
+* wallet.private_key -> private key
+* wallet.public_key -> public key
+* wallet.address_compressed -> address (Compressed)
+* wallet.address_uncompressed -> address (Uncompressed)
+* wallet.get_info() -> get all the wallet info (private key, public key, addresses, balance)
+* wallet.get_info(private_key=False, balance=False) -> get all the wallet info except private key and balance #list of default args => (private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = True)
+* wallet.next_wallet() -> next wallet
+* wallet.previous_wallet() -> previous wallet
+
 Functions :
 * get_balance(address) -> balance
 * random_private_key() -> private key
@@ -67,14 +80,3 @@ Functions :
 * previousPrivateKey(private_key) -> private key
 * randomBytes() -> bytes
 * random_seed_phrase() -> seed phrase
-
-Wallet functionalities : 
-* Wallet() -> create random wallet
-* Wallet(private_key) -> create wallet from a private key
-* wallet.get_balance() -> balance
-* wallet.private_key -> private key
-* wallet.public_key -> public key
-* wallet.address_compressed -> address (Compressed)
-* wallet.address_uncompressed -> address (Uncompressed)
-* wallet.get_info() -> get all the wallet info (private key, public key, addresses, balance)
-* wallet.get_info(private_key=False, balance=False) -> get all the wallet info except private key and balance #list of default args => (private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = True)
