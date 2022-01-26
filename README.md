@@ -1,13 +1,13 @@
 # Blockchain Explorer
 This is a python library for the Bitcoin blockchain
 
-Installation :
+### Installation :
 
 ```bash
 pip install test
 ```
 
-Usage :
+### Usage :
 #### Generate a wallet
 ```python
 import test
