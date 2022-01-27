@@ -34,6 +34,15 @@ wallet = Wallet(private_key)
 seed_phrase = random_seed_phrase()
 private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
+
+#Get the next and previous wallet
+wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
+
+next_wallet = wallet.next_wallet()
+print(next_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000003
+
+previous_wallet = wallet.previous_wallet()
+print(previous_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
 ```
 
 #### Get next and previous private key
