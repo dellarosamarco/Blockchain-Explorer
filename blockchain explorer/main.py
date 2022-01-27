@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(1, './blockchain explorer/')
-
 from bitcoin import *
 from wallet import *
 
