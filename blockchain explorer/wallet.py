@@ -5,8 +5,8 @@ class Wallet :
         if(private_key != None) :
             self.private_key = private_key
         else : 
-            self.bytes = randomBytes()
-            self.private_key = bytesToHex(self.bytes)
+            self.bytes = random_bytes()
+            self.private_key = bytes_to_hex(self.bytes)
             
         self.public_key = privkey_to_pubkey(self.private_key)
         self.address_compressed = pubkey_to_addr(self.public_key,True)

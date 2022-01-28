@@ -125,14 +125,14 @@ def get_balances(compressedAddresses = [], uncompressedAddresses = []) :
 
     return balances
 
-def bytesToHex(bytesArray) :
+def bytes_to_hex(bytesArray) :
     return ''.join('{:02x}'.format(byte) for byte in bytesArray)
 
-def hexToBytes(hex) :
+def hex_to_bytes(hex) :
     return [int(hex[i:i+2],16) for i in range(0,len(hex),2)]
 
 def next_private_key(private_key) :
-    bytesArray = hexToBytes(private_key)
+    bytesArray = hex_to_bytes(private_key)
     index = 31
     bytesArray[index] += 1
 
@@ -141,11 +141,11 @@ def next_private_key(private_key) :
         index-=1
         bytesArray[index] += 1
 
-    private_key = bytesToHex(bytesArray)
+    private_key = bytes_to_hex(bytesArray)
     return private_key
 
 def previous_private_key(private_key) :
-    bytesArray = hexToBytes(private_key)
+    bytesArray = hex_to_bytes(private_key)
     index = 31
     bytesArray[index] -= 1
 
@@ -169,27 +169,31 @@ def previous_private_key(private_key) :
         raise ValueError("Invalid private key")
     
 
-    private_key = bytesToHex(bytesArray)
+    private_key = bytes_to_hex(bytesArray)
     return private_key
 
-def randomBytes() :
+def random_bytes() :
     bytesArray = []
     for n in range(0,32) :
         bytesArray.append(random.randint(0,255))
     return bytesArray
 
 def random_private_key() :
-    bytes = randomBytes()
-    private_key = bytesToHex(bytes)
+    bytes = random_bytes()
+    private_key = bytes_to_hex(bytes)
     return private_key
 
 def random_seed_phrase() :
     file = open("./blockchain explorer/english.txt","r")
-    seed = []
+    seed_phrase = ""
     words = []
     for word in file.readlines() :
         words.append(word.rstrip("\n"))
 
     for n in range(0,12) :
-        seed.append(words[random.randint(0,len(words))])
-    return seed
+        seed_phrase += words[random.randint(0,len(words))]
+        if(n < 10) :
+            seed_phrase += " "
+            
+            
+    return seed_phrase

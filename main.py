@@ -1,3 +1,7 @@
+import sys
+sys.path.insert(1, './blockchain explorer/')
+
+
 from bitcoin import *
 from wallet import *
 
@@ -53,7 +57,22 @@ private_key = "0000000000000000000000000000000000000000000000000000000000000001"
 #Get next and previosu wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
 next_wallet = wallet.next_wallet()
-print(next_wallet.private_key)
+#print(next_wallet.private_key)
 
 previous_wallet = wallet.previous_wallet()
-print(previous_wallet.private_key)
+#print(previous_wallet.private_key)
+
+
+#print(privkey_to_pubkey("37a5dc73e1162be2d5484b8507723f32fb676717702e99492d7983b79d03ac5e"))
+
+#print(pubkey_to_addr("040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb9da1379e94b148e845da87ce3112144449d3cddbe9861a298eeaf375c2ae1134ab87e",True))
+
+#print(pubkey_to_addr("040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb9da1379e94b148e845da87ce3112144449d3cddbe9861a298eeaf375c2ae1134ab87e",False))
+
+#print(bip39("aware report multiply exile buyer drum poverty supreme gym oppose float acid"))
+
+#print(hex_to_bytes("fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f"))
+
+#print(random_bytes())
+
+print(random_seed_phrase())
