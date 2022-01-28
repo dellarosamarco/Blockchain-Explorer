@@ -83,6 +83,43 @@ print(public_key) #040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb
 public_key = "040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb9da1379e94b148e845da87ce3112144449d3cddbe9861a298eeaf375c2ae1134ab87e"
 address_compressed = pubkey_to_addr(public_key,True) #13vrcFSJsKm9MC4c95ZYmnJwLmHXrz1rCV
 address_uncompressed = pubkey_to_addr(public_key,False) #1DMJ5zriUX3AH3LLmvhomFzXLfztA8r9xC
+
+#Convert private key to address (Compressed/Uncompressed)
+public_key = "37a5dc73e1162be2d5484b8507723f32fb676717702e99492d7983b79d03ac5e"
+address_compressed = pubkey_to_addr(public_key,True) #13vrcFSJsKm9MC4c95ZYmnJwLmHXrz1rCV
+address_uncompressed = pubkey_to_addr(public_key,False) #1DMJ5zriUX3AH3LLmvhomFzXLfztA8r9xC
+
+#Convert seed phrase to private key
+seed_phrase = "aware report multiply exile buyer drum poverty supreme gym oppose float acid"
+private_key = bip39(seed_phrase)
+print(private_key) #fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f
+
+#Convert private key to bytes
+private_key = "fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f"
+bytes = hex_to_bytes(private_key)
+print(bytes) #[253, 53, 93, 205, 110, 233, 220, 116, 12, 0, 211, 50, 222, 66, 19, 211, 179, 12, 197, 47, 111, 100, 240, 80, 224, 58, 244, 55, 64, 30, 236, 127]
+
+#Convert bytes to private key
+bytes = [253, 53, 93, 205, 110, 233, 220, 116, 12, 0, 211, 50, 222, 66, 19, 211, 179, 12, 197, 47, 111, 100, 240, 80, 224, 58, 244, 55, 64, 30, 236, 127]
+private_key = bytes_to_hex(bytes)
+print(private_key) #fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f
+
+#Get next and previous private key
+private_key = "0000000000000000000000000000000000000000000000000000000000000002"
+
+next_private_key = next_private_key(private_key)
+print(next_private_key) #0000000000000000000000000000000000000000000000000000000000000003
+
+previous_private_key = previous_private_key(private_key)
+print(previous_private_key) #0000000000000000000000000000000000000000000000000000000000000001
+
+#Generate random bytes
+bytes = random_bytes()
+print(bytes) #[218, 176, 2, 10, 195, 208, 240, 183, 87, 215, 105, 44, 181, 77, 46, 126, 64, 38, 123, 7, 237, 190, 110, 243, 205, 127, 58, 64, 121, 130, 57, 237]
+
+#Generate random seed phrase
+seed_phease = random_seed_phrase()
+print(seed_phrase) #finger cruel wage scout work theme orphan confirm problem hair resultcycle
 ```
 
 Useful functions list :
@@ -94,9 +131,9 @@ Useful functions list :
 * privkey_to_addr(private_key, True) -> address (Compressed)
 * privkey_to_addr(private_key, Frue) -> address (Uncompressed)
 * bip39(seed_phrase) -> private key
-* hexToBytes(hex) -> bytes
-* bytesToHex(bytes) -> hex
-* nextPrivateKey(private_key) -> private key
-* previousPrivateKey(private_key) -> private key
-* randomBytes() -> bytes
+* hex_to_bytes(hex) -> bytes
+* bytes_to_hex(bytes) -> hex
+* next_private_key(private_key) -> private key
+* previous_private_key(private_key) -> private key
+* random_bytes() -> bytes
 * random_seed_phrase() -> seed phrase
