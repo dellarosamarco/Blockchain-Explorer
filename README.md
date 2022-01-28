@@ -35,6 +35,7 @@ seed_phrase = random_seed_phrase()
 private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
 
+
 #Get the next and previous wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
 
@@ -45,23 +46,8 @@ previous_wallet = wallet.previous_wallet()
 print(previous_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
 ```
 
-#### Get next and previous private key
-```python
-import test
 
-#Starting private key
-private_key_1 = "0000000000000000000000000000000000000000000000000000000000000001"
-
-#Go to the next one
-private_key_2 = nextPrivateKey(private_key_1)
-print(private_key_2) #0000000000000000000000000000000000000000000000000000000000000002
-
-#Go back to the previous one
-private_key_1 = previousPrivateKey(private_key_2)
-print(private_key_1) #0000000000000000000000000000000000000000000000000000000000000001
-```
-
-Wallet functionalities : 
+Wallet functionalities list : 
 * Wallet() -> create random wallet
 * Wallet(private_key) -> create wallet from a private key
 * wallet.get_balance() -> balance
@@ -74,7 +60,32 @@ Wallet functionalities :
 * wallet.next_wallet() -> next wallet
 * wallet.previous_wallet() -> previous wallet
 
-Functions :
+
+#### Useful functions usage
+```python
+import test
+
+#Get balance of an address
+address = "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo"
+balance = get_balance(address)
+print(balance) #265479 BTC
+
+#Generate a random private key
+private_key = random_private_key()
+print(private_key) #37a5dc73e1162be2d5484b8507723f32fb676717702e99492d7983b79d03ac5e
+
+#Convert private key to public key
+private_key = "37a5dc73e1162be2d5484b8507723f32fb676717702e99492d7983b79d03ac5e"
+public_key = privkey_to_pubkey(private_key)
+print(public_key) #040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb9da1379e94b148e845da87ce3112144449d3cddbe9861a298eeaf375c2ae1134ab87e
+
+#Convert public key to address (Compressed/Uncompressed)
+public_key = "040498e8bf7f4de756bb8d5df7632f843e49a4268c61d1dd704c2858a63cb9da1379e94b148e845da87ce3112144449d3cddbe9861a298eeaf375c2ae1134ab87e"
+address_compressed = pubkey_to_addr(public_key,True) #13vrcFSJsKm9MC4c95ZYmnJwLmHXrz1rCV
+address_uncompressed = pubkey_to_addr(public_key,False) #1DMJ5zriUX3AH3LLmvhomFzXLfztA8r9xC
+```
+
+Useful functions list :
 * get_balance(address) -> balance
 * random_private_key() -> private key
 * privkey_to_pubkey(private_key) -> public key
