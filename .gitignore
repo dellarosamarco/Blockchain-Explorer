@@ -1,3 +1,5 @@
 *.pyc
 *.toml
 *.swp
+/dist
+/blockchain_explorer.egg-info/
