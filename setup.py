@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(name='blockchain explorer',
-    version.0='1',
+    version='1.0',
     description='Python bitcoin blockchain tools',
     long_description=open('README.md').read(),
     author='Marco Della Rosa',
     licene='MIT',
     #author_email='',
     url='https://github.com/dellarosamarco/Blockchain-Explorer',
-    install_requires=["hashlib","base58","codecs","ecdsa","binascii","mnemonic","bip32utils","requests","json","random"],
+    install_requires=["hashlib","base58","ecdsa","mnemonic","bip32utils","requests"],
     keywords=["python", "bitcoin", "blockchain", "crypto"],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
