@@ -4,13 +4,13 @@ This is a python library for the Bitcoin blockchain
 ### Installation :
 
 ```bash
-pip install test
+pip install blockchain-explorer
 ```
 
 ### Usage :
 #### Generate a wallet
 ```python
-import test
+import blockchain-explorer
 
 #Generate a wallet from a private key
 wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff")

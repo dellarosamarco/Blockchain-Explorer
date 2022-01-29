@@ -11,6 +11,7 @@ import random
 
 base_url = "https://blockchain.info/balance?cors=true&active="
 
+#Convert private key to public key
 def privkey_to_pubkey(private_key) :
     private_key_bytes = codecs.decode(private_key, 'hex')
     public_key_raw = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
@@ -19,6 +20,7 @@ def privkey_to_pubkey(private_key) :
     public_key = (b'04' + public_key_hex).decode("utf-8")
     return public_key
 
+#Convert public key to address
 def pubkey_to_addr(public_key, compressed) : 
     if(compressed) :  
         if (ord(bytearray.fromhex(public_key[-2:])) % 2 == 0):
@@ -56,12 +58,13 @@ def pubkey_to_addr(public_key, compressed) :
 
     return address
 
+#Convert private key to address
 def privkey_to_addr(private_key,compressed) :
     public_key = privkey_to_pubkey(private_key)
     address = pubkey_to_addr(public_key, compressed)
     return address
 
-
+#Convert seed phrase to private key
 def bip39(mnemonic_words):
     mobj = mnemonic.Mnemonic("english")
     seed = mobj.to_seed(mnemonic_words)
@@ -80,12 +83,14 @@ def bip39(mnemonic_words):
 
     return private_key
 
+#Convert wif to private key
 def wif_to_privkey(wif):    
     first_encode = base58.b58decode(wif)
     private_key_full = binascii.hexlify(first_encode)
     private_key = private_key_full[2:-10]
     return private_key.decode("utf-8")
-    
+
+#Get balance of an address
 def get_balance(compressedAddress = "", uncompressedAddress = "") :
     url = base_url + compressedAddress + "," + uncompressedAddress
     response = requests.get(url)
@@ -125,12 +130,15 @@ def get_balances(compressedAddresses = [], uncompressedAddresses = []) :
 
     return balances
 
+#Convert hex to bytes
 def bytes_to_hex(bytesArray) :
     return ''.join('{:02x}'.format(byte) for byte in bytesArray)
 
+#Convert hex to bytes
 def hex_to_bytes(hex) :
     return [int(hex[i:i+2],16) for i in range(0,len(hex),2)]
 
+#Get the next private key of a private key
 def next_private_key(private_key) :
     bytesArray = hex_to_bytes(private_key)
     index = 31
@@ -144,6 +152,7 @@ def next_private_key(private_key) :
     private_key = bytes_to_hex(bytesArray)
     return private_key
 
+#Get the previous private key of a private key
 def previous_private_key(private_key) :
     bytesArray = hex_to_bytes(private_key)
     index = 31
@@ -172,17 +181,20 @@ def previous_private_key(private_key) :
     private_key = bytes_to_hex(bytesArray)
     return private_key
 
+#Generate random bytes
 def random_bytes() :
     bytesArray = []
     for n in range(0,32) :
         bytesArray.append(random.randint(0,255))
     return bytesArray
 
+#Generate random private key
 def random_private_key() :
     bytes = random_bytes()
     private_key = bytes_to_hex(bytes)
     return private_key
 
+#Generate random seed phrase
 def random_seed_phrase() :
     file = open("./blockchain explorer/english.txt","r")
     seed_phrase = ""
