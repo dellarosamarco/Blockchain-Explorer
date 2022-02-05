@@ -63,7 +63,7 @@ Wallet functionalities list :
 
 #### Useful functions usage
 ```python
-import test
+import blockchain-explorer
 
 #Get balance of an address
 address = "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo"
