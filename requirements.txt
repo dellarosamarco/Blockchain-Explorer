@@ -1,0 +1,5 @@
+base58==2.1.1
+bip32utils==0.3.post4
+ecdsa==0.17.0
+mnemonic==0.20
+requests==2.26.0
