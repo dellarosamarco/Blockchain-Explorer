@@ -1,17 +1,9 @@
 # Blockchain Explorer
 This is a python library for the Bitcoin blockchain
 
-### Installation :
-
-```bash
-pip install blockchain-explorer
-```
-
 ### Usage :
 #### Generate a wallet
 ```python
-import blockchain-explorer
-
 #Generate a wallet from a private key
 wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff")
 balance = wallet.get_balance()
@@ -63,7 +55,6 @@ Wallet functionalities list :
 
 #### Useful functions usage
 ```python
-import blockchain-explorer
 
 #Get balance of an address
 address = "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo"
