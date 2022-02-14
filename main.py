@@ -6,4 +6,5 @@ from wallet_pool import *
 
 
 
-walletPool = WalletPool(100)
+walletPool = WalletPool(1000)
+print(walletPool.getPoolBalance())

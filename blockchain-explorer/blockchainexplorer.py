@@ -106,27 +106,19 @@ def get_balance(compressedAddress = "", uncompressedAddress = "") :
     return balance
     
 
-def get_balances(compressedAddresses = [], uncompressedAddresses = []) : 
-    url_compressed = base_url
-    url_uncompressed = base_url
-    for address in compressedAddresses :
-        url_compressed += address + ","
+def get_balances(addresses) : 
+    url = base_url
+    for address in addresses :
+        url += address + ","
 
-    for address in uncompressedAddresses :
-        url_uncompressed += address + ","
+    response = requests.get(url)
 
-    response_compressed = requests.get(url_compressed)
-    response_uncompressed = requests.get(url_uncompressed)
+    response = json.loads(response.text)
 
-    response_compressed = json.loads(response_compressed.text)
-    response_uncompressed = json.loads(response_uncompressed.text)
+    balances = 0
 
-    balances = []
-
-    for n in range(0,len(compressedAddresses)) :
-        balances.append(0)
-        balances[n] += response_compressed[compressedAddresses[n]]["final_balance"]
-        balances[n] += response_uncompressed[uncompressedAddresses[n]]["final_balance"]
+    for n in range(0,len(addresses)) :
+        balances += response[addresses[n]]["final_balance"]
 
     return balances
 
