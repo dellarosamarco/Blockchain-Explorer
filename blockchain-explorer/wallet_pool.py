@@ -40,9 +40,9 @@ class WalletPool :
             if(self.poolBalance > 0) :
                 print(self.getPoolInfo())
             
-            return "Pool balance : " + self.poolBalance + " BTC"
+            return "Pool balance : " + str(self.poolBalance) + " BTC"
         else :
-            return "Pool balance : " + self.poolBalance + " BTC"
+            return "Pool balance : " + str(self.poolBalance) + " BTC"
 
     def getPoolInfo(self) :
         infos = []
