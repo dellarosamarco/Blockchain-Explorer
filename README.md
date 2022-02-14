@@ -9,24 +9,20 @@ wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafefffffffffffffffffffffffffffff
 balance = wallet.get_balance()
 print(balance)
 
-
 #Generate a random wallet
 wallet = Wallet()
 balance = wallet.get_balance()
 print(balance)
-
 
 #Generate a wallet from a seed phrase
 seed_phrase = "aware report multiply exile buyer drum poverty supreme gym oppose float acid"
 private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
 
-
 #Generate a wallet from a random seed phrase
 seed_phrase = random_seed_phrase()
 private_key = bip39(seed_phrase)
 wallet = Wallet(private_key)
-
 
 #Get the next and previous wallet
 wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
@@ -128,3 +124,18 @@ Useful functions list :
 * previous_private_key(private_key) -> private key
 * random_bytes() -> bytes
 * random_seed_phrase() -> seed phrase
+
+
+#### Wallet pooling
+```python
+
+#Create wallet pool
+wallet_pool = WalletPool(500) #generate 500 random wallets
+
+#Get pool balance (sum of all generated wallets balances)
+pool_balance = wallet_pool.getPoolBalance()
+
+#Get pool infos (all info about the generated wallets => privkey, pubkey, address compressed, address uncompressed)
+pool_infos = wallet_pool.getPoolInfo()
+```
+
