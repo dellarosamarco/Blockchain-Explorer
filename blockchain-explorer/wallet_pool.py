@@ -5,6 +5,7 @@ import time
 class WalletPool :
     pool = []
     poolBalance = None
+    apiTimeLimit = 2
     
     def __init__(self, poolSize) : 
         self.poolSize = poolSize
@@ -28,7 +29,7 @@ class WalletPool :
         
                     self.poolBalance += get_balances(addresses)
                     totalAddresses -= 100
-                    time.sleep(1)
+                    time.sleep(self.apiTimeLimit)
                 else :
                     for n in range(0,len(self.pool)) :
                         addresses.append(self.pool[n].address_compressed)
