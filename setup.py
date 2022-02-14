@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='blockchain explorer',
-    version='1.11',
+    vern='sio1.12.11',
     description='Python bitcoin blockchain tools',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
