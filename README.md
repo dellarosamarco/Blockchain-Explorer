@@ -39,6 +39,7 @@ Wallet functionalities list :
 * Wallet() -> create random wallet
 * Wallet(private_key) -> create wallet from a private key
 * wallet.get_balance() -> balance
+* wallet.get_transactions() -> total transactions
 * wallet.private_key -> private key
 * wallet.public_key -> public key
 * wallet.address_compressed -> address (Compressed)
@@ -52,10 +53,10 @@ Wallet functionalities list :
 #### Useful functions usage
 ```python
 
-#Get balance of an address
+#Get balance/transactions of an address
 address = "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo"
-balance = get_balance(address)
-print(balance) #265479 BTC
+balance = get_balance(address) #265479 BTC
+transactions = get_transaction(address) #721
 
 #Generate a random private key
 private_key = random_private_key()
@@ -111,6 +112,7 @@ print(seed_phrase) #finger cruel wage scout work theme orphan confirm problem ha
 
 Useful functions list :
 * get_balance(address) -> balance
+* get_transaction(address) -> total transactions
 * random_private_key() -> private key
 * privkey_to_pubkey(private_key) -> public key
 * pubkey_to_addr(public_key,True) -> address (Compressed)
