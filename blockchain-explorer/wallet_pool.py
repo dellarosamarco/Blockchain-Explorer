@@ -49,7 +49,7 @@ class WalletPool :
         infos = []
 
         for n in range(0,len(self.pool)) :
-            infos.append(self.pool[n].get_info(balance=False))
+            infos.append(self.pool[n].get_info(balance=False,transactions=False))
 
         return infos
             
