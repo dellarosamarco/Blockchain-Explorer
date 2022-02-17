@@ -104,7 +104,6 @@ def get_balance(compressedAddress = "", uncompressedAddress = "") :
         balance += response[uncompressedAddress]["final_balance"]
 
     return balance
-    
 
 def get_balances(addresses) : 
     url = base_url
@@ -121,6 +120,21 @@ def get_balances(addresses) :
         balances += response[addresses[n]]["final_balance"]
 
     return balances
+
+#Get total transactions of an address
+def get_transaction(compressedAddress = "", uncompressedAddress = "") :
+    url = base_url + compressedAddress + "," + uncompressedAddress
+    response = requests.get(url)
+    response = json.loads(response.text)
+
+    tx = 0
+    
+    if(compressedAddress != "") :
+        tx += response[compressedAddress]["n_tx"]
+    elif(uncompressedAddress != "") :
+        tx += response[uncompressedAddress]["n_tx"]
+
+    return tx 
 
 #Convert hex to bytes
 def bytes_to_hex(bytesArray) :
