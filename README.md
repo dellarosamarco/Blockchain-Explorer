@@ -137,7 +137,7 @@ wallet_pool = WalletPool(500) #generate 500 random wallets
 #Get pool balance (sum of all generated wallets balances)
 pool_balance = wallet_pool.getPoolBalance()
 
-#Get pool infos (all info about the generated wallets => privkey, pubkey, address compressed, address uncompressed)
+#Get pool infos (all info about the generated wallets => privkey, pubkey, address compressed, address uncompressed, transactions)
 pool_infos = wallet_pool.getPoolInfo()
 ```
 
