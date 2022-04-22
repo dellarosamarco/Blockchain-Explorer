@@ -2,55 +2,7 @@
 This is a python library for the Bitcoin blockchain
 
 ### Usage :
-#### Generate a wallet
-```python
-#Generate a wallet from a private key
-wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff")
-balance = wallet.get_balance()
-print(balance)
-
-#Generate a random wallet
-wallet = Wallet()
-balance = wallet.get_balance()
-print(balance)
-
-#Generate a wallet from a seed phrase
-seed_phrase = "aware report multiply exile buyer drum poverty supreme gym oppose float acid"
-private_key = bip39(seed_phrase)
-wallet = Wallet(private_key)
-
-#Generate a wallet from a random seed phrase
-seed_phrase = random_seed_phrase()
-private_key = bip39(seed_phrase)
-wallet = Wallet(private_key)
-
-#Get the next and previous wallet
-wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
-
-next_wallet = wallet.next_wallet()
-print(next_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000003
-
-previous_wallet = wallet.previous_wallet()
-print(previous_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
-```
-
-
-Wallet functionalities list : 
-* Wallet() -> create random wallet
-* Wallet(private_key) -> create wallet from a private key
-* wallet.get_balance() -> balance
-* wallet.get_transactions() -> total transactions
-* wallet.private_key -> private key
-* wallet.public_key -> public key
-* wallet.address_compressed -> address (Compressed)
-* wallet.address_uncompressed -> address (Uncompressed)
-* wallet.get_info() -> get all the wallet info (private key, public key, addresses, balance)
-* wallet.get_info(private_key=False, balance=False) -> get all the wallet info except private key and balance #list of default args => (private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = True)
-* wallet.next_wallet() -> next wallet
-* wallet.previous_wallet() -> previous wallet
-
-
-#### Useful functions usage
+#### Bitcoin Utilities
 ```python
 
 #Get balance/transactions of an address
@@ -110,7 +62,7 @@ seed_phease = random_seed_phrase()
 print(seed_phrase) #finger cruel wage scout work theme orphan confirm problem hair resultcycle
 ```
 
-Useful functions list :
+Bitcoin utilities list :
 * get_balance(address) -> balance
 * get_transaction(address) -> total transactions
 * random_private_key() -> private key
@@ -126,6 +78,52 @@ Useful functions list :
 * previous_private_key(private_key) -> private key
 * random_bytes() -> bytes
 * random_seed_phrase() -> seed phrase
+
+#### Generate a Bitcoin wallet
+```python
+#Generate a wallet from a private key
+wallet = Wallet("414136d08c5ed2bf3ba048afe6dcaebafeffffffffffffffffffffffffffffff")
+balance = wallet.get_balance()
+print(balance)
+
+#Generate a random wallet
+wallet = Wallet()
+balance = wallet.get_balance()
+print(balance)
+
+#Generate a wallet from a seed phrase
+seed_phrase = "aware report multiply exile buyer drum poverty supreme gym oppose float acid"
+private_key = bip39(seed_phrase)
+wallet = Wallet(private_key)
+
+#Generate a wallet from a random seed phrase
+seed_phrase = random_seed_phrase()
+private_key = bip39(seed_phrase)
+wallet = Wallet(private_key)
+
+#Get the next and previous wallet
+wallet = Wallet("0000000000000000000000000000000000000000000000000000000000000002")
+
+next_wallet = wallet.next_wallet()
+print(next_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000003
+
+previous_wallet = wallet.previous_wallet()
+print(previous_wallet.private_key) #0000000000000000000000000000000000000000000000000000000000000001
+```
+
+Wallet functionalities list : 
+* Wallet() -> create random wallet
+* Wallet(private_key) -> create wallet from a private key
+* wallet.get_balance() -> balance
+* wallet.get_transactions() -> total transactions
+* wallet.private_key -> private key
+* wallet.public_key -> public key
+* wallet.address_compressed -> address (Compressed)
+* wallet.address_uncompressed -> address (Uncompressed)
+* wallet.get_info() -> get all the wallet info (private key, public key, addresses, balance)
+* wallet.get_info(private_key=False, balance=False) -> get all the wallet info except private key and balance #list of default args => (private_key = True, public_key = True, address_compressed = True, address_uncompressed = True, balance = True)
+* wallet.next_wallet() -> next wallet
+* wallet.previous_wallet() -> previous wallet
 
 
 #### Wallet pooling
