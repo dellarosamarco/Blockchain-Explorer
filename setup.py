@@ -23,4 +23,3 @@ setup(name='blockchain explorer',
         'Topic :: Security :: Cryptography',
     ],
 )
-)
