@@ -4,3 +4,4 @@
 *.lock
 /dist
 /blockchain_explorer.egg-info/
+*.vscode
