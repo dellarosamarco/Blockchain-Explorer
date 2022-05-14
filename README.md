@@ -58,7 +58,7 @@ bytes = random_bytes()
 print(bytes) #[218, 176, 2, 10, 195, 208, 240, 183, 87, 215, 105, 44, 181, 77, 46, 126, 64, 38, 123, 7, 237, 190, 110, 243, 205, 127, 58, 64, 121, 130, 57, 237]
 
 #Generate random seed phrase
-seed_phease = random_seed_phrase()
+seed_phrase = random_seed_phrase()
 print(seed_phrase) #finger cruel wage scout work theme orphan confirm problem hair resultcycle
 ```
 
