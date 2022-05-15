@@ -190,14 +190,7 @@ def previous_private_key(private_key) :
 
 #Get private key bytes of an index
 def private_key_from_index(index) :
-    bytesArray = []
-    for n in range(0,32) :
-        bytesArray.append(0)
-
-    return bytesArray
-
-def tmp(page) :
-    total = page
+    total = index
     bytes = []
     for n in range(0,32) :
         bytes.append(0)
@@ -232,7 +225,7 @@ def tmp(page) :
             
             total -= 255*newIndex
 
-    return bytes
+    return bytes_to_hex(bytes)
 
 #Generate random bytes
 def random_bytes() :
