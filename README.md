@@ -45,6 +45,9 @@ private_key = bytes_to_hex(bytes)
 print(private_key) #fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f
 
 #Get private key by its index inside the blockchain
+index = 192638791212536871198672312323435643132112412875124687125481247875312768124531
+privateKey = private_key_from_index(index)
+print(privateKey) #6fbb8f420a530d861997331db590719d6ae05ce66f7b5ee15e655e8382d5e101
 
 #Get next and previous private key
 private_key = "0000000000000000000000000000000000000000000000000000000000000002"
