@@ -5,6 +5,7 @@ import ecdsa
 import binascii
 import mnemonic
 import bip32utils
+from numpy import byte
 import requests
 import json
 import random
@@ -186,6 +187,52 @@ def previous_private_key(private_key) :
 
     private_key = bytes_to_hex(bytesArray)
     return private_key
+
+#Get private key bytes of an index
+def private_key_from_index(index) :
+    bytesArray = []
+    for n in range(0,32) :
+        bytesArray.append(0)
+
+    return bytesArray
+
+def tmp(page) :
+    total = page
+    bytes = []
+    for n in range(0,32) :
+        bytes.append(0)
+
+    for n in range(31,0,-1) :
+        value = 255 ** (n+1)
+
+        while(total > value) :
+            total -= value
+            bytes[n] += 1
+                
+    index = 0;
+    while(total > 0) :
+        if(bytes[index] == 0 and total >= 255) :
+            bytes[index] = 255
+            total -= 255
+        elif(bytes[index] < 255) :
+            bytes[index] += 1
+            total -= 1
+        else :
+            bytes[index]=0
+            newIndex = index+1
+
+            while(bytes[newIndex] > 255) :
+                newIndex += 1
+
+            bytes[newIndex] += 1; 
+
+            if(bytes[newIndex] == 255) :
+                bytes[newIndex] = 0
+                bytes[newIndex+1] += 1
+            
+            total -= 255*newIndex
+
+    return bytes
 
 #Generate random bytes
 def random_bytes() :
