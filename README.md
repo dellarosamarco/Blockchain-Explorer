@@ -44,6 +44,8 @@ bytes = [253, 53, 93, 205, 110, 233, 220, 116, 12, 0, 211, 50, 222, 66, 19, 211,
 private_key = bytes_to_hex(bytes)
 print(private_key) #fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f
 
+#Get private key by its index inside the blockchain
+
 #Get next and previous private key
 private_key = "0000000000000000000000000000000000000000000000000000000000000002"
 
