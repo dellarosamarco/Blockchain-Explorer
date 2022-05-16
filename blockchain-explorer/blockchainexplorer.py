@@ -137,7 +137,7 @@ def get_transaction(compressedAddress = "", uncompressedAddress = "") :
 
     return tx 
 
-#Convert hex to bytes
+#Convert bytes to hex
 def bytes_to_hex(bytesArray) :
     return ''.join('{:02x}'.format(byte) for byte in bytesArray)
 
