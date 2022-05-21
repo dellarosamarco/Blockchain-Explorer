@@ -196,7 +196,7 @@ def private_key_from_index(privateKeyIndex) :
         bytes.append(0)
 
     for n in range(31,0,-1) :
-        value = 255 ** (n+1)
+        value = 255 ** (n)
 
         while(total > value) :
             total -= value
