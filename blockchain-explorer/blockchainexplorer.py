@@ -188,9 +188,9 @@ def previous_private_key(private_key) :
     private_key = bytes_to_hex(bytesArray)
     return private_key
 
-#Get private key bytes of an index
-def private_key_from_index(index) :
-    total = index
+#Get private key by its index
+def private_key_from_index(privateKeyIndex) :
+    total = privateKeyIndex
     bytes = []
     for n in range(0,32) :
         bytes.append(0)
@@ -202,7 +202,7 @@ def private_key_from_index(index) :
             total -= value
             bytes[n] += 1
                 
-    index = 0;
+    index = 0
     while(total > 0) :
         if(bytes[index] == 0 and total >= 255) :
             bytes[index] = 255
@@ -224,6 +224,9 @@ def private_key_from_index(index) :
                 bytes[newIndex+1] += 1
             
             total -= 255*newIndex
+
+    # REVERSE BYTES ARRAY
+    bytes = bytes[::-1]
 
     return bytes_to_hex(bytes)
 
