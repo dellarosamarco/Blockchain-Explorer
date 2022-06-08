@@ -188,6 +188,23 @@ def previous_private_key(private_key) :
     private_key = bytes_to_hex(bytesArray)
     return private_key
 
+
+#Get private key index inside the blockchain
+def private_key_to_index(private_key) :
+    bytes = hex_to_bytes(private_key)
+
+    # Reverse byte array
+    bytes = bytes[::-1]
+
+    lenBytes = 32
+    index = 0
+
+    for n in range(0, lenBytes) : 
+        if(bytes[n] != 0) :
+            index += 256 ** (n) * bytes[n]
+
+    return index
+
 #Get private key by its index
 def private_key_from_index(privateKeyIndex) :
     total = privateKeyIndex
