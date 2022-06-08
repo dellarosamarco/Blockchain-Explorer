@@ -44,6 +44,11 @@ bytes = [253, 53, 93, 205, 110, 233, 220, 116, 12, 0, 211, 50, 222, 66, 19, 211,
 private_key = bytes_to_hex(bytes)
 print(private_key) #fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f
 
+#Get private key index inside the blockhain
+private_key = "fd355dcd6ee9dc740c00d332de4213d3b30cc52f6f64f050e03af437401eec7f"
+index = private_key_to_index(private_key)
+print(index) #114529440986879525895045423868794747674423284965086598118911669060086941019263
+
 #Get private key by its index inside the blockchain
 index = 192638791212536871198672312323435643132112412875124687125481247875312768124531
 privateKey = private_key_from_index(index)
